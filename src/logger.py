@@ -1,7 +1,7 @@
 import os
 import datetime
 
-class logger:
+class Logger:
     
     file_name = f"./log/{datetime.date.today()}.log"
 
@@ -13,31 +13,31 @@ class logger:
 
     @staticmethod
     def info(msg: str) -> None:
-        logger._log("INFO", msg)
+        Logger._log("INFO", msg)
 
     @staticmethod
     def debug(msg: str) -> None:
-        logger._log("DEBUG", msg)
+        Logger._log("DEBUG", msg)
 
     @staticmethod
     def warning(msg: str) -> None:
-        logger._log("WARNING", msg)
+        Logger._log("WARNING", msg)
 
     @staticmethod
     def error(msg :str) -> None:
-        logger._log("ERROR", msg)
+        Logger._log("ERROR", msg)
 
     @staticmethod
     def _log(level: str, msg: str) -> None:
-        logger.update_file_name()
-        with open(logger.file_name, "a", encoding="utf-8") as f:
+        Logger.update_file_name()
+        with open(Logger.file_name, "a", encoding="utf-8") as f:
             f.writelines(f"{datetime.datetime.now()} {level.upper()}: {msg}\n")
         return
 
     @staticmethod
     def update_file_name() -> None:
         # An API wrapper for logger._update_file_name()
-        logger.file_name = logger._update_file_name()
+        Logger.file_name = Logger._update_file_name()
         return
 
     @staticmethod
@@ -48,7 +48,7 @@ class logger:
 def logger_showoff() -> None:
     # Demonstrate the logger
     print(f"Today is {datetime.date.today()}")
-    logger.info("something")
+    Logger.info("something")
 
 if __name__ == "__main__":
     logger_showoff()
