@@ -10,6 +10,9 @@ class Logger:
         with open(file_name, "w", encoding="utf-8") as f:
             print("Create log file successful.")
             pass
+    
+    with open(file_name, "a", encoding="utf-8") as f:
+        f.writelines(f"\n{datetime.datetime.now()} INIT Logger successful\n")
 
     @staticmethod
     def info(msg: str) -> None:

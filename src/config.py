@@ -16,13 +16,14 @@ class Config:
 
         with open(file_path, "r", encoding="utf-8") as f:
             config = yaml.safe_load(f)
-        print(json.dumps(config, indent=2))
         Logger.debug("Load local config successfully.")
+        Logger.debug(f"Config: {json.dumps(config, indent=2)}")
     else:
         with open(example_file_path, "r", encoding="utf-8") as f:
             config = yaml.safe_load(f)
         print(json.dumps(config, indent=2))
         Logger.debug("Load example config successfully.")
+        Logger.debug(f"Config: {json.dumps(config, indent=2)}")
 
         with open(file_path, "w", encoding="utf-8") as f:
             yaml.safe_dump(config, f)
