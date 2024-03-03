@@ -4,8 +4,8 @@ Right now this script servers little purpose other than making symbolic link fro
 
 ## Roadmap
 
--[ ] Make symbolic link from download directory to jellyfin directory
--[ ] Create folder if the film does not come in a folder
--[ ] KEEP IT SIMPLE
+- [ ] Make symbolic link from download directory to jellyfin directory
+- [ ] Create folder if the film does not come in a folder
+- [ ] KEEP IT SIMPLE
 
--[ ] Config auto generation
+- [ ] Config auto generation
