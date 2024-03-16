@@ -5,8 +5,10 @@ from logger import Logger
 
 class Config:
     
-    file_path = "config.yaml"
-    example_file_path = "example_config.yaml"
+    main_file_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
+    file_path = f"{main_file_path}/config.yaml"
+    example_file_path = f"{main_file_path}/example_config.yaml"
 
     config = None
     # Copy config file is no local one exists
@@ -34,3 +36,10 @@ class Config:
     if not config:
         Logger.error("Config file empty!")
         raise Exception
+
+    # Check if dev mode
+    if config["developer mode"]:
+        Logger.warning("Start in developer mode! Config file is override by example config file")
+        with open(example_file_path, "r", encoding="utf-8") as f:
+            config = yaml.safe_load(f)
+        Logger.debug(f"Config: {json.dumps(config, indent=2)}")

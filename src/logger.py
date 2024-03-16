@@ -3,7 +3,8 @@ import datetime
 
 class Logger:
     
-    file_name = f"./log/{datetime.date.today()}.log"
+    main_file_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    file_name = f"{main_file_path}/log/{datetime.date.today()}.log"
 
     # Checking if log file exists. If not, create a new one.
     if not os.path.isfile(file_name) and not os.path.isdir(file_name):
@@ -46,7 +47,8 @@ class Logger:
     @staticmethod
     def _update_file_name() -> str:
         # Automatic rotating file names
-        return f"./log/{datetime.date.today()}.log"
+        main_file_path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        return f"{main_file_path}/log/{datetime.date.today()}.log"
 
 def logger_showoff() -> None:
     # Demonstrate the logger
